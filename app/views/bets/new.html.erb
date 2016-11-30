@@ -1,0 +1,9 @@
+<h1>new bet</h1>
+
+<%= form_for @bet do |f| %>
+  <%= f.label :bet %>
+  <%= f.text_field :bet %>
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
+  <%= f.submit %>
+<% end %>

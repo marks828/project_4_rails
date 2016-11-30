@@ -1,0 +1,6 @@
+<h2>BETS!</h2><%= link_to "New Bet", new_bet_path%>
+<% @bets.each do |bet| %>
+  <p>
+    <%= link_to "#{bet.bet}", bet_path(bet)%>
+  </p>
+<% end %>
