@@ -8,6 +8,8 @@ class BetsController < ApplicationController
 
   def show
     @bet = Bet.find(params[:id])
+
+    render json: @bet
   end
 
   def new
@@ -18,7 +20,7 @@ class BetsController < ApplicationController
     @bet = Bet.create(bet_params)
 
     @bet.save
-    redirect_to bets_path
+    render json: @bet
   end
 
   def edit
@@ -28,18 +30,16 @@ class BetsController < ApplicationController
   def update
     @bet = Bet.find(params[:id])
     @bet.update(bet_params)
-    redirect_to bets_path
   end
 
   def destroy
     @bet = Bet.find(params[:id])
     @bet.destroy
-    redirect_to bets_path
   end
 
   private
   def bet_params
-    params.require(:bet).permit(:bet, :amount, :winner)
+    params.permit(:bet, :amount, :winner)
   end
 
 end
